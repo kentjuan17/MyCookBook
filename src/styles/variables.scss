@@ -1,0 +1,28 @@
+$title-font: "Pacifico", cursive;
+$body-font: "Mulish", sans-serif;
+
+$primary-color: #867070;
+$secondary-color: #d5b4b4;
+$accent-light: #e4d0d0;
+$accent-verlight: #f5ebeb;
+$text-dark: #454545;
+$text-light: #eeeeee;
+
+//----- Responsive-----//
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
