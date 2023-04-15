@@ -1,14 +1,12 @@
 import React from "react";
-import Header from "../../components/Header";
 import Recipes from "../../components/Recipes";
+import PageContainer from "../../components/PageContainer";
 
 const HomePage = () => {
   return (
-    <>
-      <Header />
-
+    <PageContainer title="Recipes">
       <Recipes />
-    </>
+    </PageContainer>
   );
 };
 

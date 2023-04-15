@@ -3,6 +3,8 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Header from "./components/Header";
+import AddRecipePage from "./pages/AddRecipePage";
 import "./styles/index.scss";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+
       <Routes>
         <Route
           index
@@ -28,6 +32,14 @@ function App() {
           element={
             <LoggedInUser>
               <HomePage />
+            </LoggedInUser>
+          }
+        />
+        <Route
+          path="/add"
+          element={
+            <LoggedInUser>
+              <AddRecipePage />
             </LoggedInUser>
           }
         />

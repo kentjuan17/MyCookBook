@@ -1,5 +1,5 @@
 import "./styles.scss";
-import { FaTasks } from "react-icons/fa";
+import { GiCook } from "react-icons/gi";
 import MainMenu from "../MainMenu";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
       <div className="title">
-        <FaTasks />
+        <GiCook />
         My Cook Book
       </div>
       <MainMenu />
