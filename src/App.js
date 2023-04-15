@@ -11,6 +11,9 @@ import { AuthContext } from "./context/AuthContext";
 import { setRecipes } from "./redux/recipeSlice";
 import { useDispatch } from "react-redux";
 import * as database from "./database";
+import RecipePage from "./pages/RecipePage";
+import RecipeListPage from "./pages/RecipeListPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -28,19 +31,23 @@ function App() {
   };
 
   useEffect(() => {
-    // IIFE
-    (async () => {
-      // Loads the recipes from Firestore
-      const data = await database.load(currentUser.uid);
-      dispatch(setRecipes(data));
-      console.log("Loaded db:", data);
-      // setIsLoading(false);
-    })();
+    if (currentUser) {
+      // IIFE
+      (async () => {
+        // Loads the recipes from Firestore
+        const data = await database.load(currentUser.uid);
+        dispatch(setRecipes(data));
+        console.log("Loaded db:", data);
+        // setIsLoading(false);
+      })();
+    }
   }, [currentUser, dispatch]);
 
   return (
     <div className="App">
-      <Header />
+      <LoggedInUser>
+        <Header />
+      </LoggedInUser>
 
       <Routes>
         <Route
@@ -52,14 +59,27 @@ function App() {
             </LoggedInUser>
           }
         />
+
+        <Route path="/recipes" element={<RecipeListPage />} />
         <Route
-          path="/add"
+          path="/recipes/add"
           element={
             <LoggedInUser>
               <AddRecipePage />
             </LoggedInUser>
           }
         />
+        <Route path="/recipes/:id" element={<RecipePage />} />
+
+        <Route
+          path="/profile"
+          element={
+            <LoggedInUser>
+              <ProfilePage />
+            </LoggedInUser>
+          }
+        />
+
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />

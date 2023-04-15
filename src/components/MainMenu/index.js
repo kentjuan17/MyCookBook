@@ -5,11 +5,9 @@ import "./styles.scss";
 const MainMenuPage = () => {
   return (
     <nav className="main-menu">
-      <NavLink to="/">Recipes</NavLink>
-      <NavLink to="/add">New</NavLink>
-      <NavLink to="/">Profile</NavLink>
-      {/* <NavLink to="/add">Add Recipe</NavLink>
-      <NavLink to="/help">Help</NavLink> */}
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/recipes">Recipes</NavLink>
+      <NavLink to="/profile">My Profile</NavLink>
     </nav>
   );
 };

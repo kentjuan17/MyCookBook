@@ -1,0 +1,21 @@
+@import "./../../styles/variables.scss";
+
+.add-recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  .add-recipe-button {
+    background-color: $accent-light;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 8px 10px;
+    border: 0 solid black;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
