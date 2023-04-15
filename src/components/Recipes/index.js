@@ -1,63 +1,23 @@
 import React from "react";
 import "./styles.scss";
 import Recipe from "./Recipe";
+import * as database from "./../../database";
+import { useSelector } from "react-redux";
 
 const Recipes = () => {
-  let recipes = [
-    {
-      id: 1,
-      name: "My First Recipe",
-      ingredients: [
-        "1 onion",
-        "2 cloves of garlic",
-        "1 tablespoon of salt",
-        "pinch of pepper",
-      ],
-      instructions: "Lorem Ipsum",
-      cooking_time: "30 minutes",
-    },
-    {
-      id: 2,
-      name: "My Second Recipe",
-      ingredients: [
-        "1 onion",
-        "2 cloves of garlic",
-        "1 tablespoon of salt",
-        "pinch of pepper",
-      ],
-      instructions: "Lorem Ipsum",
-      cooking_time: "30 minutes",
-    },
-    {
-      id: 3,
-      name: "My Third Recipe",
-      ingredients: [
-        "1 onion",
-        "2 cloves of garlic",
-        "1 tablespoon of salt",
-        "pinch of pepper",
-      ],
-      instructions: "Lorem Ipsum",
-      cooking_time: "30 minutes",
-    },
-    {
-      id: 4,
-      name: "My Fourth Recipe",
-      ingredients: [
-        "1 onion",
-        "2 cloves of garlic",
-        "1 tablespoon of salt",
-        "pinch of pepper",
-      ],
-      instructions: "Lorem Ipsum",
-      cooking_time: "30 minutes",
-    },
-  ];
+  let recipes = useSelector((state) => state.recipe.recipes);
 
   return (
     <main className="recipes">
       {recipes.map((recipe, index) => {
-        return <Recipe key={index} {...recipe} />;
+        // return <Recipe key={index} {...recipe} />;
+        return (
+          <div key={index}>
+            <h2>{recipe.recipeName}</h2>
+            <span>{recipe.prepTime}</span>
+            <span>{recipe.cookTime}</span>
+          </div>
+        );
       })}
     </main>
   );

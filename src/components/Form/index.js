@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import * as database from "./../../database";
 import { useDispatch } from "react-redux";
 import { addRecipe } from "../../redux/recipeSlice";
@@ -12,6 +13,8 @@ const Form = () => {
     { step: 1, instruction: "" },
   ]);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { currentUser } = useContext(AuthContext);
 
   const dispatch = useDispatch();
 
@@ -68,7 +71,15 @@ const Form = () => {
     // Add new recipe to firebase and redux
     console.log(recipeName, prepTime, cookTime, ingredients, instructions);
 
-    const data = { recipeName, prepTime, cookTime, ingredients, instructions };
+    const userId = currentUser.uid;
+    const data = {
+      recipeName,
+      prepTime,
+      cookTime,
+      ingredients,
+      instructions,
+      userId,
+    };
 
     const savedId = await database.save(data);
     if (!savedId) return setErrorMessage("Unable to add recipe to the server");
