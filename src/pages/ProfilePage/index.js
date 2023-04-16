@@ -31,7 +31,7 @@ const ProfilePage = () => {
 
   return (
     <PageContainer className="profile">
-      <h1>Profile</h1>
+      <h1> My Profile</h1>
       <div className="profile-row">
         <label htmlFor="name">Name:</label>
         {editMode ? (

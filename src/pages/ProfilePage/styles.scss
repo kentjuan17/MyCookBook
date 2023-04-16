@@ -1,28 +1,25 @@
 @import "./../../styles/variables.scss";
 
-.profile-component {
-  background-color: red;
-
-  .profile {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .profile-row {
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 0 auto;
   }
 
   .profile-row label {
     margin-right: 10px;
+    font-size: 1.2rem;
   }
 
   .profile-row input,
   .profile-row div {
-    font-size: 16px;
+    font-size: 1.2rem;
     padding: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
@@ -31,21 +28,13 @@
   .profile-row input:focus,
   .profile-row div:focus {
     outline: none;
-    border-color: #66afe9;
-    box-shadow: 0 0 5px #66afe9;
+    border-color: $primary-color;
+    box-shadow: 0 0 5px $primary-color;
   }
 
   button {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #0069d9;
+    @include button-style {
+      margin: 10px auto;
+    }
   }
 }

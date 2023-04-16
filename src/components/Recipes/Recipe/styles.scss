@@ -3,22 +3,41 @@
 .recipe-component {
   background-color: white;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  margin: 2%;
-  width: 100%;
+  margin: 1rem;
+  width: calc(100% - 4rem);
   text-decoration: none;
   color: $text-dark;
   border-radius: 9px;
 
-  h2 {
-    font-size: 30px;
-  }
+  .recipe-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
 
-  span {
-    width: 50%;
-  }
+    h2 {
+      margin: 0;
+      width: 100%;
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
 
+    .time-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      span {
+        width: 50%;
+      }
+    }
+  }
   // Breakpoints
   @include breakpoint-medium {
     width: calc(50% - 4rem);

@@ -44,6 +44,7 @@ header {
     padding: 0 0.5rem;
 
     .logout-button {
+      cursor: pointer;
       border: none;
       background-color: $secondary-color;
       padding: 0.8rem;

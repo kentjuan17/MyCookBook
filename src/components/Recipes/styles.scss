@@ -1,5 +1,7 @@
 @import "./../../styles/variables.scss";
 
 main.recipes {
-  margin: 10px auto;
+  margin: 0;
+  display: flex;
+  width: calc(100% - 2rem);
 }

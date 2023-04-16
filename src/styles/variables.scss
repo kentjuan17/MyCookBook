@@ -7,6 +7,24 @@ $accent-light: #e4d0d0;
 $accent-verlight: #f5ebeb;
 $text-dark: #454545;
 $text-light: #eeeeee;
+$warning-color: #ff7b61;
+
+@mixin button-style {
+  background-color: $secondary-color;
+  color: $text-light;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 9px;
+  padding: 0.6rem;
+  border: 0 solid black;
+
+  &:hover {
+    background-color: $text-dark;
+    color: $text-light;
+  }
+
+  @content;
+}
 
 //----- Responsive-----//
 @mixin breakpoint($min-width) {

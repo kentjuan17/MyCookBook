@@ -1,0 +1,96 @@
+@import "./../../styles/variables.scss";
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 9px;
+    margin: 1rem;
+    padding: 1rem;
+
+    label {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 5px 0;
+      font-size: 1rem;
+
+      span {
+        width: 40%;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      input {
+        line-height: 1.4;
+        padding: 5px;
+        font-size: 1rem;
+        font-family: $body-font;
+        width: 50%;
+      }
+    }
+
+    h2 {
+      color: $text-dark;
+      margin: 10px;
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+      input {
+        width: 33%;
+        padding: 5px;
+        margin: 0.3rem;
+        font-size: 1rem;
+        font-family: $body-font;
+      }
+
+      button {
+        margin: 0.5rem;
+        padding: 0 10px;
+      }
+    }
+
+    .instruction-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+      input {
+        width: 50%;
+        padding: 5px;
+        margin: 0.3rem;
+        font-size: 1rem;
+        font-family: $body-font;
+      }
+
+      button {
+        margin: 0.5rem;
+        padding: 0 10px;
+      }
+    }
+
+    .submit-button {
+      font-size: 1.2rem;
+    }
+
+    button {
+      @include button-style {
+        margin: 10px auto;
+      }
+    }
+  }
+}

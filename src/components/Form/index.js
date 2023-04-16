@@ -3,6 +3,8 @@ import { AuthContext } from "../../context/AuthContext";
 import * as database from "./../../database";
 import { useDispatch } from "react-redux";
 import { addRecipe } from "../../redux/recipeSlice";
+import "./styles.scss";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [recipeName, setRecipeName] = useState("");
@@ -13,6 +15,7 @@ const Form = () => {
     { step: 1, instruction: "" },
   ]);
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
 
@@ -87,6 +90,8 @@ const Form = () => {
     data.id = savedId;
     dispatch(addRecipe(data));
 
+    navigate("/recipes");
+
     // Clear form
     setRecipeName("");
     setPrepTime("");
@@ -99,7 +104,7 @@ const Form = () => {
     <form className="recipe-form" onSubmit={handleSubmit}>
       <div>
         <label>
-          <span>Recipe Name</span>
+          <span>Recipe Name: </span>
           <input
             type="text"
             maxLength={30}
@@ -109,7 +114,7 @@ const Form = () => {
           />
         </label>
         <label>
-          <span>Prep Time</span>
+          <span>Prep Time: </span>
           <input
             type="text"
             maxLength={30}
@@ -118,7 +123,7 @@ const Form = () => {
           />
         </label>
         <label>
-          <span>Cook Time</span>
+          <span>Cook Time: </span>
           <input
             type="text"
             maxLength={30}
@@ -126,9 +131,10 @@ const Form = () => {
             onChange={handleCookTimeChange}
           />
         </label>
+
         <h2>Ingredients:</h2>
         {ingredients.map((ingredient, index) => (
-          <div key={index}>
+          <div key={index} className="input-row">
             <input
               type="text"
               placeholder="Amount"
@@ -153,9 +159,10 @@ const Form = () => {
           </div>
         ))}
         <button onClick={addNewIngredient}>+</button>
+
         <h2>Instructions:</h2>
         {instructions.map((instruction, index) => (
-          <div key={index}>
+          <div key={index} className="instruction-row">
             <input
               type="text"
               placeholder={`Step ${index + 1}`}
@@ -168,8 +175,12 @@ const Form = () => {
             )}
           </div>
         ))}
+
         <button onClick={addNewInstruction}>Add Step</button>
-        <button type="submit">Submit</button>
+
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </div>
     </form>
   );
