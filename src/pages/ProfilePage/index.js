@@ -21,7 +21,6 @@ const ProfilePage = () => {
 
   const handleSaveButtonClick = async () => {
     const data = { displayName: name, uid: userData.uid };
-    console.log(data);
     const updateUser = await database.updateUserProfile(data);
 
     if (!updateUser) return console.log("failed updating");

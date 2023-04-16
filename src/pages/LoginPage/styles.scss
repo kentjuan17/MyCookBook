@@ -29,7 +29,7 @@
       border: 1px solid #272727;
       color: #272727;
       &:hover {
-        background-color: #9d4edd;
+        background-color: $primary-color;
         color: #fffffc;
         cursor: pointer;
       }
@@ -46,7 +46,7 @@
     border: 1px solid #272727;
     color: #272727;
     &:hover {
-      background-color: #9d4edd;
+      background-color: $primary-color;
       color: #fffffc;
     }
 
@@ -55,48 +55,12 @@
     }
   }
 
-  h4 {
-    overflow: hidden;
-    text-align: center;
-    margin-top: -20px;
-    font-weight: 500;
-    font-size: 13px;
-  }
-
-  h4:before,
-  h4:after {
-    background-color: #272727;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-  }
-
-  h4:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-
-  h4:after {
-    left: 0.5em;
-    margin-right: -50%;
-  }
-
   .logo-responsive {
     visibility: hidden;
     @include breakpoint-medium {
       visibility: visible;
-      color: #72369d;
+      color: $primary-color;
     }
-  }
-
-  .title {
-    color: #272727;
-    font-weight: 500;
-    font-size: 24px;
-    padding-bottom: 25px;
   }
 
   form {
@@ -108,6 +72,7 @@
       padding: 15px 0;
       width: 300px;
       border: none;
+      font-family: $body-font;
       border-bottom: 1px solid #495057;
       outline: none;
       &::placeholder {
@@ -117,7 +82,7 @@
     }
 
     button {
-      background-color: #9d4edd;
+      background-color: $primary-color;
       color: #fffffc;
       padding: 10px;
       font-weight: 500;
@@ -145,28 +110,6 @@
     font-weight: 300;
     margin-top: 10px;
   }
-}
-
-.img-bg {
-  background-image: linear-gradient(
-      45deg,
-      rgba(72, 149, 239, 0.75),
-      rgba(157, 78, 221, 0.75),
-      rgba(157, 78, 221, 0.75)
-    ),
-    url(../../img/pancake.jpg);
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fffffc;
-  @include breakpoint-medium {
-    display: none;
-  }
-}
-
-.img-bg h2 {
-  font-size: 28px;
 }
 
 .register-form {
