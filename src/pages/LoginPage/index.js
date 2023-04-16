@@ -23,7 +23,6 @@ const LoginPage = () => {
         setError("Please verify your email before signing in.");
         return;
       }
-      // console.log(userCredential.user);
 
       // navigate to home page
       navigate("/");

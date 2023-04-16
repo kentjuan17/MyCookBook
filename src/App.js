@@ -14,11 +14,10 @@ import * as database from "./database";
 import RecipePage from "./pages/RecipePage";
 import RecipeListPage from "./pages/RecipeListPage";
 import ProfilePage from "./pages/ProfilePage";
+import Loading from "./pages/LoadingPage";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-
-  // const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   // Verifies if there's user login
@@ -38,7 +37,6 @@ function App() {
         const data = await database.load(currentUser.uid);
         dispatch(setRecipes(data));
         console.log("Loaded db:", data);
-        // setIsLoading(false);
       })();
     }
   }, [currentUser, dispatch]);

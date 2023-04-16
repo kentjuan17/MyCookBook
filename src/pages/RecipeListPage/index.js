@@ -12,13 +12,12 @@ const RecipeListPage = () => {
   };
   return (
     <PageContainer title="My Recipes">
-      <Recipes />
-
       <div className="add-recipe-container">
         <button className="add-recipe-button" onClick={handleAddRecipeClick}>
           Add Recipe
         </button>
       </div>
+      <Recipes />
     </PageContainer>
   );
 };

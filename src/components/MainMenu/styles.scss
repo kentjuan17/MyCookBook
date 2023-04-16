@@ -7,20 +7,30 @@
   a {
     display: flex;
     flex-direction: column;
-    padding: 0.8rem;
+    margin: 0 2px;
     color: $text-light;
-    background-color: $primary-color;
-    font-size: 16px;
+    background-color: $secondary-color;
+    font-size: 10px;
     text-align: center;
+    padding: 5px 10px;
+    font-weight: bold;
     text-decoration: none;
-    width: 40px;
+    border-radius: 9px;
+    box-shadow: 0 0 10px 0 $accent-light;
 
-    &:first-child {
-      border-radius: 9px 0 0 9px;
+    @include breakpoint-medium {
+      font-size: 16px;
+      width: 100px;
+      margin: 0 0.8rem;
+      padding: 0.8rem;
+      border-radius: 0 0 9px 9px;
     }
-
-    &:last-child {
-      border-radius: 0 9px 9px 0;
+    @include breakpoint-large {
+      width: 100px;
+      font-size: 16px;
+      margin: 0 0.8rem;
+      padding: 0.8rem;
+      border-radius: 0 0 9px 9px;
     }
 
     &.active {

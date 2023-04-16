@@ -18,8 +18,10 @@ export default function Header() {
         My Cook Book
       </div>
       <MainMenu />
-      <div className="author">
-        <button onClick={handleLogOut}>Log out</button>
+      <div className="logout-container">
+        <button onClick={handleLogOut} className="logout-button">
+          Log out
+        </button>
       </div>
     </header>
   );

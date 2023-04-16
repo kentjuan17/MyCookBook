@@ -1,22 +1,30 @@
 @import "./../../../styles/variables.scss";
 
 .recipe-component {
-  box-sizing: border-box;
   background-color: white;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin: 2%;
   width: 100%;
   text-decoration: none;
   color: $text-dark;
+  border-radius: 9px;
 
   h2 {
     font-size: 30px;
   }
 
-  h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.3rem;
-    color: $primary-color;
-    font-weight: normal;
+  span {
+    width: 50%;
+  }
+
+  // Breakpoints
+  @include breakpoint-medium {
+    width: calc(50% - 4rem);
+  }
+
+  @include breakpoint-large {
+    width: calc(33% - 4rem);
   }
 }

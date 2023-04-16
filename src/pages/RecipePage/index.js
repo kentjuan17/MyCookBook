@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Recipe from "../../components/Recipes/Recipe";
 import * as database from "./../../database";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NotFoundPage from "../NotFoundPage";
+import "./styles.scss";
+import PageContainer from "../../components/PageContainer";
 
 const RecipePage = () => {
   const params = useParams();
@@ -25,10 +26,14 @@ const RecipePage = () => {
   if (!recipe) return <NotFoundPage />;
 
   return (
-    <>
-      <h2>{recipe.recipeName}</h2>
-      <span>Prep:{recipe.prepTime}</span>
-      <span>Cook:{recipe.cookTime}</span>
+    <PageContainer
+      title={recipe.recipeName + " Recipe"}
+      className="recipe-page-container"
+    >
+      <div className="recipe-page-total-time">
+        <span>Prep:{recipe.prepTime}</span>
+        <span>Cook:{recipe.cookTime}</span>
+      </div>
 
       <h3>Ingredients</h3>
       <ul>
@@ -43,7 +48,7 @@ const RecipePage = () => {
           <li key={index}>{instruction.instruction}</li>
         ))}
       </ol>
-    </>
+    </PageContainer>
   );
 };
 

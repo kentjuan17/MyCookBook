@@ -1,2 +1,2 @@
-export { save, remove } from "./write";
+export { save, remove, updateUserProfile } from "./write";
 export { load, loadById } from "./read";

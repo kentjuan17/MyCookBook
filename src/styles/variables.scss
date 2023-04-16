@@ -9,20 +9,22 @@ $text-dark: #454545;
 $text-light: #eeeeee;
 
 //----- Responsive-----//
-@mixin mobile {
-  @media screen and (max-width: 480px) {
+@mixin breakpoint($min-width) {
+  @media screen and (min-width: $min-width) {
+    display: flex;
+    flex-wrap: wrap;
     @content;
   }
 }
 
-@mixin tablet {
-  @media screen and (max-width: 768px) {
+@mixin breakpoint-medium {
+  @include breakpoint(480px) {
     @content;
   }
 }
 
-@mixin laptop {
-  @media screen and (max-width: 768px) {
+@mixin breakpoint-large {
+  @include breakpoint(900px) {
     @content;
   }
 }

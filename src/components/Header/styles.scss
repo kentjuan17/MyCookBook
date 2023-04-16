@@ -4,8 +4,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $text-light;
-  margin: 0.5rem 0;
+  color: $primary-color;
+  margin: 0;
+  margin-top: -1px;
+  width: 100%;
 
   .title {
     padding: 0;
@@ -13,18 +15,54 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 10px;
     font-family: $title-font;
     font-weight: bold;
 
+    @include breakpoint-medium {
+      font-size: 1rem;
+    }
+    @include breakpoint-large {
+      font-size: 1.4rem;
+    }
+
     svg {
-      margin: 0 0.5rem;
+      margin: 0;
+      font-size: 36px;
+
+      @include breakpoint-medium {
+        font-size: 36px;
+      }
+      @include breakpoint-large {
+        font-size: 36px;
+      }
     }
   }
 
-  .author {
-    font-style: italic;
-    font-size: 0.7rem;
+  .logout-container {
+    margin: 0;
     padding: 0 0.5rem;
+
+    .logout-button {
+      border: none;
+      background-color: $secondary-color;
+      padding: 0.8rem;
+      margin: 0 0.8rem;
+      color: $text-light;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 0 0 9px 9px;
+      box-shadow: 0 0 10px 0 $accent-light;
+
+      &.active {
+        background-color: $secondary-color;
+        color: $text-dark;
+      }
+
+      &:hover {
+        background-color: $text-dark;
+        color: $text-light;
+      }
+    }
   }
 }
